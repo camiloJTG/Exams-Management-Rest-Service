@@ -1,1 +1,0 @@
-# Exams-Management-rest-service
