@@ -7,6 +7,7 @@ import { configurationSchema } from './config/validation.config';
 import { CommonModule } from './common/common.module';
 import { AuthModule } from './auth/auth.module';
 import { SeedModule } from './seed/seed.module';
+import { IncomeModule } from './income/income.module';
 
 @Module({
   imports: [
@@ -27,6 +28,7 @@ import { SeedModule } from './seed/seed.module';
     CommonModule,
     AuthModule,
     SeedModule,
+    IncomeModule,
   ],
   controllers: [],
   providers: [],

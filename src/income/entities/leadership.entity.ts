@@ -1,18 +1,15 @@
-import { Income } from 'src/income/entities';
 import {
   Column,
   CreateDateColumn,
   Entity,
-  JoinTable,
-  ManyToMany,
   OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { Role } from './role.entity';
+import { Income } from './income.entity';
 
 @Entity()
-export class User {
+export class Leadership {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
@@ -23,9 +20,6 @@ export class User {
   email: string;
 
   @Column('text')
-  password: string;
-
-  @Column('text')
   names: string;
 
   @Column('text')
@@ -33,6 +27,9 @@ export class User {
 
   @Column('text')
   maternalSurname: string;
+
+  @Column('text')
+  jobName: string;
 
   @Column({ type: 'bool', default: true })
   isActive: boolean;
@@ -43,10 +40,6 @@ export class User {
   @UpdateDateColumn()
   updatedAt: Date;
 
-  @ManyToMany(() => Role, { cascade: true })
-  @JoinTable()
-  roles: Role[];
-
-  @OneToMany(() => Income, (income) => income.user)
+  @OneToMany(() => Income, (income) => income.leadership)
   income: Income[];
 }
